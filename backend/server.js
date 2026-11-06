@@ -22,7 +22,7 @@ server.get("/health", (req, res) => {
   return res.status(200).json();
 });
 
-server.get("/product", (req, res) => {
+server.get("/products", (req, res) => {
   return res.status(200).json(products);
 });
 
