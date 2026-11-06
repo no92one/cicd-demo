@@ -5,12 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test:api": "cd ../postman && newman run cicd-demo.postman_collection.json -e cicd-demo-env.postman_environment.json --reporters cli"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "newman": "^6.2.3"
   }
 }

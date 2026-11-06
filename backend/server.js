@@ -18,6 +18,10 @@ const products = [
   }
 ];
 
+server.get("/health", (req, res) => {
+  return res.status(200).json();
+});
+
 server.get("/products", (req, res) => {
   return res.status(200).json(products);
 });
@@ -55,22 +59,13 @@ server.post("/products", (req, res) => {
 server.delete("/products/:id", (req, res) => {
   const id = req.params.id;
 
-  console.log("jkalskdnlaksnd");
-  console.log(id);
-
   const index = products.findIndex(p => p.id == id);
-
-  console.log("jkalskdnlaksnd - 2");
 
   if (index == -1) {
     return res.status(404).json({ message: "hitta ingen produkt." });
   }
 
-  console.log("jkalskdnlaksnd - 3");
-
   products.splice(index, 1);
-
-  console.log("jkalskdnlaksnd - 4");
 
   return res.status(200).json({ "message": "Allt gick bra" });
 });
